@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f7f7f7;
+}
+
+.tox-notification {
+    display: none !important;
+}
+
+
+/*------  header  ------*/
+
+header {
+    box-shadow: 0px 0.5px 8px -5px #000000;
+    position: fixed;
+    z-index: 9;
+    width: 100%;
+    top: 0;
+    right: 0;
+}
+
+.navicon {
+    color: #fff;
+}
+
+.navicon i {
+    font-size: 20px;
+}
+
+.user-icon {
+    text-align: right;
+    color: #fff;
+    margin-right: 10px;
+}
+
+.user-icon i {
+    border-radius: 100%;
+    border: 1px solid;
+    padding: 0px 3px;
+    text-align: right;
+    color: #fff;
+}
+
+.navopen {
+    width: 220px;
+    transition: 0.5s all;
+}
+
+.navclose {
+    width: 0px;
+    transition: 0.5s all;
+}
+
+
+/*------  sidebar  ------*/
+
+.logo {
+    font-size: 18px;
+    color: #fff;
+    z-index: 99;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    box-shadow: 0px 0.5px 8px -5px #000000;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    position: fixed;
+    width: 220px;
+}
+
+.sidebar {
+    position: fixed;
+    top: 50px;
+    width: 220px;
+    overflow-y: auto;
+}
+
+.sidebar ul {
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar .nav-item {
+    width: 100%;
+}
+
+.sidebar ul li {
+    list-style: none;
+}
+
+.sidebar ul li a {
+    text-decoration: none;
+    color: #fff;
+    cursor: pointer;
+}
+
+.sidebar ul li i {
+    margin-right: 10px;
+}
+
+.sidebar ul li ul {
+    margin-left: 15px;
+}
+
+.sidebar ul li ul li a {
+    cursor: pointer;
+}
+
+.contant-wrap {
+    margin-top: 75px;
+}
+
+.contant .card {
+    border: 0;
+    padding: 20px;
+}
