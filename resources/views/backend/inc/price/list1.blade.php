@@ -33,17 +33,15 @@
                                     <td colspan="{{ count($all_cc) }}" class="text-center" style="border: 1px solid;">Zone {{ $z }}</td>
                                     @endforeach -->
                                     <tr>
-                                        @foreach($zone as $z)
-                                        <td style="border: 1px solid;">{{ $z }}</td>
-                                        @endforeach
+                                        <td style="border: 1px solid;">Basic TP</td>
+                                        <td style="border: 1px solid;">Per Pessanger</td>
                                     </tr>
-                                    @foreach($price_rates as $age => $age_data)
+                                    @foreach($price_rates as $cc => $price)
                                     <tr>
-                                        <td style="border: 1px solid;">{{ $age }}</td>
-                                        @foreach($age_data as $zone => $price)
+                                        <td style="border: 1px solid;">{{ $cc }}</td>
                                         <td style="border: 1px solid;">
                                             @if(!empty($price->id))
-                                            <a href="{{ route('admin.price.edit',$price->id) }}" title="edit"><i class="material-icons" style="font-size: 15px; color: black;">mode_edit</i> {{ $price->price }} ₹</a>
+                                            <a href="{{ route('admin.price.edit',$price->id) }}" title="edit"><i class="material-icons" style="font-size: 15px; color: black;">mode_edit</i> {{ $price->price }}/- ₹</a>
                                             {{ Form::open(array('url' => route('admin.price.destroy',$price->id), 'class' => 'btn tblActnBtn')) }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             <button class="btn tblActnBtn" title="dalete">
@@ -55,7 +53,7 @@
                                             Null
                                             @endif
                                         </td>
-                                        @endforeach
+                                        <td style="border: 1px solid;">{{ $price->per_pessanger }}/- ₹</td>
                                     </tr>
                                     @endforeach
                                 </thead>

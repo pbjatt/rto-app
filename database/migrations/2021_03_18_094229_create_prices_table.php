@@ -18,8 +18,9 @@ class CreatePricesTable extends Migration
             $table->unsignedBigInteger('type_id')->nullable();
             $table->foreign('type_id')->references('id')->on('types');
             $table->enum('type', ['New', 'Renewal']);
-            $table->string('cc');
-            $table->string('price');
+            $table->string('cc')->nullable();
+            $table->string('price')->nullable();
+            $table->string('per_pessanger')->nullable();
             $table->timestamps();
         });
     }

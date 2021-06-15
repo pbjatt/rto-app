@@ -50,14 +50,14 @@
                                             {{ Form::open(array('url' => route('admin.type.destroy',$list->id), 'class' => 'btn tblActnBtn')) }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             @if(count($list->subtype) != 0)
-                                            <button class="btn tblActnBtn" disabled>
+                                            <!-- <button class="btn tblActnBtn" disabled>
                                                 <a style="color: black;"><i class="material-icons">delete</i></a>
-                                            </button>
+                                            </button> -->
                                             @endif
                                             @if(count($list->subtype) == 0)
-                                            <button class="btn tblActnBtn">
+                                            <!-- <button class="btn tblActnBtn">
                                                 <a style="color: black;"><i class="material-icons">delete</i></a>
-                                            </button>
+                                            </button> -->
                                             @endif
                                             {{ Form::close() }}
                                         </td>
@@ -73,12 +73,12 @@
                                             <button class="btn tblActnBtn">
                                                 <a href="{{ route('admin.type.edit',$item->id) }}" style="color: black;"><i class="material-icons">mode_edit</i></a>
                                             </button>
-                                            {{ Form::open(array('url' => route('admin.type.destroy',$list->id), 'class' => 'btn tblActnBtn')) }}
+                                            <!-- {{ Form::open(array('url' => route('admin.type.destroy',$list->id), 'class' => 'btn tblActnBtn')) }}
                                             {{ Form::hidden('_method', 'DELETE') }}
                                             <button class="btn tblActnBtn">
                                                 <a style="color: black;"><i class="material-icons">delete</i></a>
                                             </button>
-                                            {{ Form::close() }}
+                                            {{ Form::close() }} -->
                                         </td>
                                     </tr>
                                     </tr>

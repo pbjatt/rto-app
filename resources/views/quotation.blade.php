@@ -51,6 +51,9 @@
         <div style="width: 70%;">
             <h3>Bajaj Allianz General Insurance Company Limited</h3>
         </div>
+        <div style="width: 70%;">
+            <img src="https://cdn-0.motorcycle-logos.com/wp-content/uploads/2017/01/Bajaj-Logo.png" alt="" width="100%">
+        </div>
     </div>
     <table>
         <tr>
@@ -66,9 +69,9 @@
             <td></td>
         </tr>
         <tr>
-            <td>policy_type</td>
+            <td>Policy Type</td>
             <td>{{ $quotation->data->basic_details->policy_type }}</td>
-            <td>type_of_vehivle</td>
+            <td>Type of Vehivle</td>
             <td>{{ $quotation->data->basic_details->type_of_vehivle }}</td>
         </tr>
         <tr>
@@ -78,7 +81,7 @@
             <td>{{ $quotation->data->basic_details->rto }}</td>
         </tr>
         <tr>
-            <td>Year of Manufacture</td>
+            <td>Age of Vehicle</td>
             <td>{{ $quotation->data->basic_details->age_of_vehicle }}</td>
             <td>Zone</td>
             <td>{{ $quotation->data->basic_details->zone }}</td>
@@ -188,9 +191,6 @@
     </table>
 
     <div style="padding-top: 5px;">
-        <div style="font-size: 13px;">Addon Coverage : .................</div>
-        <div>Other Coverage : .................</div>
-
         <div style="padding-top: 7px;">
             <p style="margin: 0px; padding: 0px; font-size: 13px;">Kindly pay cheque/DD in favor of</p>
             <h4 style="margin-top: 0;">BAJAJ ALLIANZ GENERAL INSURANCE COMPANY LIMITED</h4>
@@ -206,21 +206,21 @@
                 </tr>
             </table>
             <p style="font-size: 13px;">Note : In case of any claim, NCB will be revised and hence Quotation is Subject to Change.</p>
-            <p style="font-size: 13px;">Quote Validity: This Quote is valid for 7 days from date of generation</p>
+            <p style="font-size: 13px;">Quote Validity: This Quote is valid till midnight</p>
             <p style="text-align:center; font-size: 12px;">Insurance is subject matter of the solicitation.</p>
         </div>
         <div class="footer">
             <table>
                 <tr>
-                    <td>Producer Name</td>
+                    <td>Adviser Name</td>
                     <td>:</td>
                     <td>{{ $user->sign->name }}</td>
-                    <td>Producer Contact</td>
+                    <td>Adviser Contact</td>
                     <td>:</td>
                     <td>{{ $user->sign->mobile }}</td>
                 </tr>
                 <tr>
-                    <td>Producer Email</td>
+                    <td>Adviser Email</td>
                     <td>:</td>
                     <td>{{ $user->sign->email }}</td>
                     <td>Quote Date</td>

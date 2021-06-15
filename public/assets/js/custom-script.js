@@ -1,12 +1,12 @@
-$(function() {
+$(function () {
     $.ajaxSetup({
         headers: {
             'X-CSRF-Token': $('meta[name="_token"]').attr('content')
         }
     });
 
-    $(function() {
-        $("#filterexam").change(function() {
+    $(function () {
+        $("#filterexam").change(function () {
             this.submit();
             // $value = $(this).serialize();
             $value = $(this).serialize();
@@ -14,7 +14,7 @@ $(function() {
         });
     });
 
-    $(document).on('change', '#category', function() {
+    $(document).on('change', '#category', function () {
         // let ajax_url = $(this).data('url'),
         let ajax_url = 'http://localhost/gov-exam/examsearch',
             cid = $(this).val();
@@ -25,12 +25,12 @@ $(function() {
             data: {
                 age: cid
             },
-            success: function(res) {
+            success: function (res) {
 
             }
         });
     });
-    $(document).on('change', '#category_id', function() {
+    $(document).on('change', '#category_id', function () {
         // let ajax_url = $(this).data('url'),
         let ajax_url = 'http://localhost/rtoapp/admin/ajex/changeoption',
             cid = $(this).val();
@@ -41,21 +41,21 @@ $(function() {
             data: {
                 category: cid
             },
-            success: function(res) {
+            success: function (res) {
                 $('#ageSelect').html(res.age);
                 $('#ccSelect').html(res.cc);
             }
         });
     });
 
-    $('.extra-fields').click(function() {
+    $('.extra-fields').click(function () {
         $('.customer_records').clone().appendTo('.customer_records_dynamic');
         $('.customer_records_dynamic .customer_records').addClass('single remove');
         $('.single .extra-fields-customer').remove();
         $('.single').append('<a href="#" class="remove-field btn-remove-customer">Remove Fields</a>');
         $('.customer_records_dynamic > .single').attr("class", "remove");
 
-        $('.customer_records_dynamic input').each(function() {
+        $('.customer_records_dynamic input').each(function () {
             var count = 0;
             var fieldname = $(this).attr("name");
             $(this).attr('name', fieldname);
@@ -63,7 +63,7 @@ $(function() {
         });
     });
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         localStorage.getItem("mytime");
 
 
@@ -84,7 +84,7 @@ $(function() {
 
             $('#director-uploads1').append(director)
                 .find("*")
-                .each(function() {
+                .each(function () {
                     var name = $(this).attr("name");
                     var style = $(this).attr("style");
                     var dataitem = $(this).attr("data-item");
@@ -95,19 +95,19 @@ $(function() {
 
         $("button#add-director").on("click", clone);
 
-        $("html").on('change', '.app-file', function() {
+        $("html").on('change', '.app-file', function () {
             var number = $(this).attr('data-item');
             console.log(number);
         });
     });
 
-    $(document).on('click change', '.removefield', function(e) {
+    $(document).on('click change', '.removefield', function (e) {
         $(this).parent('div').remove();
         e.preventDefault();
     });
 
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         if ($("#size_check").is(":checked")) {
             $('.app-file1').attr("name", "records[" + index + "][size_id]");
         } else {
@@ -115,7 +115,7 @@ $(function() {
         }
     });
 
-    $(document).on('click change', '#size_check', function() {
+    $(document).on('click change', '#size_check', function () {
         if ($(this).prop('checked')) {
             $('.size_require').removeAttr('style', 'display:none');
         } else {
@@ -123,7 +123,7 @@ $(function() {
         }
     });
 
-    $(document).on('click change', '#color_check', function() {
+    $(document).on('click change', '#color_check', function () {
         if ($(this).prop('checked')) {
             $('.color_require').removeAttr('style', 'display:none');
         } else {
@@ -132,7 +132,7 @@ $(function() {
     });
 
 
-    $(document).on('keyup change', '.hsdafj', function(e) {
+    $(document).on('keyup change', '.hsdafj', function (e) {
         ajax_url = $(this).attr('data_url');
         search = $(this).val();
         $.ajax({
@@ -142,14 +142,14 @@ $(function() {
             data: {
                 search: search
             },
-            success: function(res) {
+            success: function (res) {
                 $('.list_data').html('');
                 $('.list_data').append(res);
             }
         });
     });
 
-    $(document).on('change', '#statuschange', function() {
+    $(document).on('change', '#statuschange', function () {
         let ajax_url = $(this).attr('dataurl');
         status = $(this).val();
         id = $(this).attr('dataid');
@@ -162,7 +162,7 @@ $(function() {
                 status: status,
                 id: id
             },
-            success: function(res) {
+            success: function (res) {
 
             }
         });

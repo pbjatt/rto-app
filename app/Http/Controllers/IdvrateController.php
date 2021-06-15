@@ -30,7 +30,7 @@ class IdvrateController extends Controller
 
         $idv_rates = [];
 
-        if ($category == 5 || $category == 8 || $category == 9) {
+        if ($category == 5 || $category == 8 || $category == 9 || $category == 17 || $category == 16 || $category == 4 || $category == 5) {
             foreach ($ages as $id => $age) {
                 foreach ($zone as $z) {
                     $idv_rates[$age][$z] = Idvrate::get_data_wo_cc($id, $z, $category);
@@ -47,13 +47,15 @@ class IdvrateController extends Controller
         }
 
         // set page and title -------------
-        if ($category == 5 || $category == 8 || $category == 9) {
+        if ($category == 5 || $category == 8 || $category == 9 || $category == 17 || $category == 16 || $category == 4 || $category == 5) {
             $page  = 'idv.list1';
         } else {
             $page  = 'idv.list';
         }
+        // dd($page);
         $title = 'idv list';
         $data  = compact('page', 'title', 'lists', 'idv_rates', 'zone', 'all_cc', 'category');
+        // dd($lists);
 
         return view('backend.layout.master', $data);
     }

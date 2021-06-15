@@ -14,6 +14,7 @@ class PriceController extends Controller
     {
         $limit = $request->limit ?: 100;
         $category = Type::where('slug', $category)->firstOrFail();
+        $cat = $category;
         $category = $category->id;
 
         $query = Price::with('cubiccapacity');
@@ -33,6 +34,10 @@ class PriceController extends Controller
             foreach ($zone as $z) {
                 $price_rates[$z] = Price::get_data_wo_cc($z, $category);
             }
+        } elseif ($category == 8 || $category == 9 || $category == 10 || $category == 11 || $category == 12 || $category == 13) {
+            foreach ($all_cc as $cc_id => $cc) {
+                $price_rates[$cc] = Price::get_data_w_cc($cc_id, $category);
+            }
         } else {
             foreach ($all_cc as $cc_id => $cc) {
                 foreach ($zone as $z) {
@@ -43,13 +48,17 @@ class PriceController extends Controller
         // dd($price_rates);
 
         // set page and title -------------
-        if ($category == 5) {
+        if ($category == 17 || $category == 16 || $category == 4 || $category == 5 || $category == 6) {
+            $page = 'price.list3';
+        } elseif ($category == 12 || $category == 13) {
             $page  = 'price.list1';
+        } elseif ($category == 8 || $category == 9 || $category == 10 || $category == 11) {
+            $page  = 'price.list2';
         } else {
             $page  = 'price.list';
         }
         $title = 'Price list';
-        $data  = compact('page', 'title', 'lists', 'price_rates', 'zone', 'all_cc', 'category');
+        $data  = compact('page', 'title', 'lists', 'price_rates', 'zone', 'all_cc', 'category', 'cat');
 
         return view('backend.layout.master', $data);
     }

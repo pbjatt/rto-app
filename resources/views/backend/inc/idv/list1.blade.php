@@ -59,6 +59,10 @@
                                                 <a style="color: black;"><i class="material-icons" style="font-size: 15px;">delete</i></a>
                                             </button>
                                             {{ Form::close() }}
+                                            <br>
+                                            @if(!empty($idv->sc))
+                                            {{ $idv->sc }} seating cap.
+                                            @endif
                                             @endif
                                             @if(empty($idv->id))
                                             Null

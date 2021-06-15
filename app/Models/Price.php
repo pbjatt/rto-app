@@ -39,4 +39,13 @@ class Price extends Model
         // dd($data);
         return !empty($data->id) ? $data : null;
     }
+    public static function get_data_w_cc($cc, $type)
+    {
+        // echo '<pre>';
+        // print_r(compact('cc', 'type'));
+        // echo '</pre>';
+        $data = \DB::table('prices')->where('cc', $cc)->where('type_id', $type)->first();
+        // dd($data);
+        return !empty($data->id) ? $data : null;
+    }
 }

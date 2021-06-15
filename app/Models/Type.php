@@ -9,4 +9,10 @@ class Type extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $with = ['category'];
+
+    public function category()
+    {
+        return $this->hasOne('App\Models\Type', 'id', 'type_id');
+    }
 }

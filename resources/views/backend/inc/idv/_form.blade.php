@@ -32,11 +32,21 @@
       @include('backend.template.age_select', compact('ageArr'))
     </div>
   </div>
+  @if ($category->slug != 'gcv-3w-public' && $category->slug != 'gcv-3w-private' && $category->slug != 'gcv-other-then-3w-private' && $category->slug != 'gcv-other-then-3w-public' && $category->slug != 'miscd' && $category->slug != '3w-below-6-seats' && $category->slug != '3w-above6-seats' && $category->slug != 'school-bus' && $category->slug != 'tourist-bus')
   <div class="col-lg-3">
     <div class="form-group" id="ccSelect">
       @include('backend.template.cc_select', compact('ccArr'))
     </div>
   </div>
+  @endif
+  @if ($category->slug == '3w-below-6-seats' || $category->slug == '3w-above6-seats' || $category->slug == 'school-bus' || $category->slug == 'tourist-bus')
+  <div class="col-lg-3">
+    <div class="form-group">
+      {{ Form::label('sc', 'Enter seating capacity'), ['class' => 'active'] }}
+      {{ Form::text('record[sc]','', ['class'=>'form-control', 'placeholder'=>'Enter seating capacity']) }}
+    </div>
+  </div>
+  @endif
   <div class="col-lg-12">
     <div class="form-group">
       {{ Form::label('idv', 'Enter Idv rate'), ['class' => 'active'] }}

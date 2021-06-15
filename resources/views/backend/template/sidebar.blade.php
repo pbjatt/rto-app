@@ -2,6 +2,10 @@
 $types = App\Models\Type::where('type_id', null)->get();
 foreach ($types as $list) {
 $subtype = App\Models\Type::latest()->where('type_id', $list->id)->get();
+foreach ($subtype as $li) {
+$sstype = App\Models\Type::latest()->where('type_id', $li->id)->get();
+$li->subtype = $sstype;
+}
 $list->subtype = $subtype;
 }
 @endphp
@@ -119,12 +123,30 @@ $list->subtype = $subtype;
                                 <span>{{ $type->name }}</span>
                             </a>
                             <ul class="ml-menu">
-                                @foreach($type->subtype as $type)
+                                @foreach($type->subtype as $subtype)
+                                @if(count($subtype->subtype) == 0)
                                 <li>
-                                    <a href="{{ route('admin.idv-list',$type->slug) }}">
-                                        <span>{{ $type->name }}</span>
-                                    </a>
+                                    <a href="{{ route('admin.idv-list',$subtype->slug) }}">{{ $subtype->name }}</a>
                                 </li>
+                                @endif
+
+                                @if(count($subtype->subtype) != 0)
+                                <li>
+                                    <a href="#" onClick="return false;" class="menu-toggle">
+                                        <!-- <i class="fas fa-mail-bulk"></i> -->
+                                        <span>{{ $subtype->name }}</span>
+                                    </a>
+                                    <ul class="ml-menu">
+                                        @foreach($subtype->subtype as $subtype)
+                                        <li>
+                                            <a href="{{ route('admin.idv-list',$subtype->slug) }}">
+                                                <span>{{ $subtype->name }}</span>
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                @endif
                                 @endforeach
                             </ul>
                         </li>
@@ -163,7 +185,7 @@ $list->subtype = $subtype;
                 <li>
                     <a href="#" onClick="return false;" class="menu-toggle">
                         <i class="material-icons">shop</i>
-                        <span>Price</span>
+                        <span>Tp Rates</span>
                     </a>
                     <ul class="ml-menu">
                         @foreach($types as $type)
@@ -181,11 +203,29 @@ $list->subtype = $subtype;
                             </a>
                             <ul class="ml-menu">
                                 @foreach($type->subtype as $type)
+                                @if(count($type->subtype) == 0)
                                 <li>
-                                    <a href="{{ route('admin.price-list',$type->slug) }}">
+                                    <a href="{{ route('admin.price-list',$type->slug) }}">{{ $type->name }}</a>
+                                </li>
+                                @endif
+
+                                @if(count($type->subtype) != 0)
+                                <li>
+                                    <a href="#" onClick="return false;" class="menu-toggle">
+                                        <!-- <i class="fas fa-mail-bulk"></i> -->
                                         <span>{{ $type->name }}</span>
                                     </a>
+                                    <ul class="ml-menu">
+                                        @foreach($type->subtype as $type)
+                                        <li>
+                                            <a href="{{ route('admin.price-list',$type->slug) }}">
+                                                <span>{{ $type->name }}</span>
+                                            </a>
+                                        </li>
+                                        @endforeach
+                                    </ul>
                                 </li>
+                                @endif
                                 @endforeach
                             </ul>
                         </li>
